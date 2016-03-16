@@ -1,0 +1,11 @@
+{
+  "name": "react_test_webpack",
+  "dependencies": {
+    "webpack": "registry:npm/webpack#1.12.9+20160219013405"
+  },
+  "devDependencies": {},
+  "ambientDependencies": {
+    "node": "registry:dt/node#4.0.0+20160316042000",
+    "react": "registry:dt/react#0.14.0+20160314090524"
+  }
+}
