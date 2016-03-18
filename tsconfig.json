@@ -4,10 +4,11 @@
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
 		"target": "es5",
-		"module": "umd",
+		"module": "commonjs",
 		"moduleResolution": "node",
 		"removeComments": true,
-		"sourceMap": false
+		"sourceMap": false,
+        "jsx": "react"
 	},
 	"exclude": [
 		"node_modules",

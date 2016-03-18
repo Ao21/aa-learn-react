@@ -3,7 +3,10 @@ const TARGET = process.env.npm_lifecycle_event;
 const webpack = require('webpack');
 const NpmInstallPlugin = require('npm-install-webpack-plugin');
 
+
 const path = require('path');
+var nodeModulesPath = path.resolve(__dirname, 'node_modules');
+
 const PATHS = {
     app: path.resolve(__dirname, 'app'),
     build: path.resolve(__dirname, 'build')
@@ -13,19 +16,33 @@ const common = {
     // Entry accepts a path or an object of entries. We'll be using the
     // latter form given it's convenient with more complex configurations.
     entry: {
+        vendors: [
+            'react',
+            'react-dom',
+            'node-uuid'
+        ],
         app: PATHS.app
     },
+    resolveLoader: {
+        root: nodeModulesPath
+    },
     resolve: {
-        extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
+        extensions: ['', '.tsx', '.webpack.js', '.web.js', '.ts', '.js'],
+        modulesDirectories: ["node_modules", "resources"],
+        alias: {
+            'node-uuid': path.join(nodeModulesPath, 'node-uuid', 'uuid.js'),
+            'react': path.join(nodeModulesPath, 'react', 'react.js'),
+            'react-dom': path.join(nodeModulesPath, 'react-dom', 'dist', 'react-dom.js'),
+        },
     },
     output: {
         path: PATHS.build,
-        filename: 'bundle.js'
+        filename: '[name].js'
     },
     module: {
         loaders: [
             {
-                test: /\.ts$/,
+                test: /\.ts(x?)$/,
                 loader: 'ts-loader'
             },
             {

@@ -4,6 +4,10 @@
   "devDependencies": {},
   "ambientDependencies": {
     "node": "registry:dt/node#4.0.0+20160316042000",
-    "react": "registry:dt/react#0.14.0+20160314090524"
+    "node-uuid": "registry:dt/node-uuid#0.0.0+20160316155526",
+    "node-uuid/node-uuid-cjs": "registry:dt/node-uuid/node-uuid-cjs#0.0.0+20160316155526",
+    "node-uuid/node-uuid-global": "registry:dt/node-uuid/node-uuid-global#0.0.0+20160316155526",
+    "react": "registry:dt/react#0.14.0+20160314090524",
+    "react-dom": "registry:dt/react-dom#0.14.0+20160316155526"
   }
 }
