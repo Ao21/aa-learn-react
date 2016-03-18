@@ -2,8 +2,10 @@ import * as React from 'react';
 import * as uuid from 'node-uuid';
 
 import Notes from './notes/notes.tsx';
+import {log} from './../decorators/log.ts';
 
-export default class App extends React.Component<any, any> {
+
+export default class App extends React.Component<any, any> {    
     constructor(props) {
         super(props);
         this.state = {
@@ -19,8 +21,9 @@ export default class App extends React.Component<any, any> {
                     task: 'Finish Learning'
                 }]
         }
-    }
-    addNote = () => {
+    };
+    @log
+    public addNote = () => {
         this.setState({
             notes: this.state.notes.concat([{
                 id: uuid.v4(),
@@ -30,6 +33,7 @@ export default class App extends React.Component<any, any> {
             console.log('I HAVE SET A STATE!')
         })
     }
+
     editNote = (id, task: string) => {
         if (!task.trim()) {
             return;
